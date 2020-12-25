@@ -72,28 +72,53 @@
     }
   function fun()
   {
-    var i,a=0;
-    for(i=0;i<s.length;i++)
-    if(s.charAt(i)=="*")
-    a=a+parseInt(s.charAt(i-1))*parseInt(s.charAt(i+1));
-    for(i=0;i<s.length;i++)
-    if(s.charAt(i)=="+")
-    a=a+parseInt(s.charAt(i-1))+parseInt(s.charAt(i+1));
-    for(i=0;i<s.length;i++)
-    if(s.charAt(i)=="-")
-    a=a+parseInt(s.charAt(i-1))-parseInt(s.charAt(i+1));
-    for(i=0;i<s.length;i++)
-    if(s.charAt(i)=="/")
-    a=a+parseInt(s.charAt(i-1))/parseInt(s.charAt(i+1));
-    document.getElementById("T").innerHTML=a;
-    s=a;
+
+    var chars = s.split("");
+    var n = [], op = [], index = 0, oplast = true;
+
+    n[index] = "";
+
+    // Parse the expression
+    for (var c = 0; c < chars.length; c++) {
+
+        if (isNaN(parseInt(chars[c])) && chars[c] !== "." && !oplast) {
+            op[index] = chars[c];
+            index++;
+            n[index] = "";
+            oplast = true;
+        } else {
+            n[index] += chars[c];
+            oplast = false;
+        }
+    }
+
+    s= parseFloat(n[0]);
+    for (var o = 0; o < op.length; o++) {
+        var num = parseFloat(n[o + 1]);
+        switch (op[o]) {
+            case "+":
+                s=s+ num;
+                break;
+            case "-":
+                s= s - num;
+                break;
+            case "*":
+                s= s* num;
+                break;
+            case "/":
+                s = s/ num;
+                break;
+        }
+    }
+    document.getElementById("T").innerHTML=s;
   }
 
   </script>
 </head>
 <body>
-  <div style="height:800px;width:400px;background-color: aqua;margin-left:35%;margin-right:35%;">
-  <div style="height:150px;width:385px;background-color: aliceblue;margin-left:2%;" ><p id="T">ENTER</p></div>
+  <div style="height:800px;width:400px;background-color: aqua;margin-left:35%;margin-right:75%;border:solid black;">
+  
+  <div style="height:150px;width:385px;background-color: aliceblue;margin-left:2%;" ><p style="font-size:60px;" id="T">ENTER</p></div>
   <button style="margin-top:30px;margin-left:20%" onclick="funp()">+</button>
   <button style="margin-top:30px;margin-left:20%;" onclick="funm()">-</button>
   <button style="margin-top:30px;margin-left:20%" onclick="fund()">/</button>
@@ -108,7 +133,7 @@
   <button style="margin-top:30px;margin-left:10%;" onclick="fun8()">8</button>
   <button style="margin-top:30px;margin-left:10%;" onclick="fun9()">9</button>
   <button style="margin-top:30px;margin-left:163px;" onclick="fun0()">0</button>
-  <button style="margin-top:30px;margin-left:16px;height:250px;width:370px;" onclick="fun()">=</button>
+  <button style="margin-top:30px;margin-left:16px;height:200px;width:370px;font-size:60px;" onclick="fun()">=</button>
   </div>
 </body>
 </html>
