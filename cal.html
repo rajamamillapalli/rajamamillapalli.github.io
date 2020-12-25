@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button{
+      height:30px;
+      width:80px;
+      background-color: antiquewhite;
+      border:0px;
+    }
+  </style>
+  <script >
+    var s="";
+    function fun1(){
+        s=s+"1";
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun2(){
+        s=s+"2"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun3(){
+        s=s+"3"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun4(){
+        s=s+"4"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun5(){
+        s=s+"5"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun6(){
+        s=s+"6"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun7(){
+        s=s+"7"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun8(){
+        s=s+"8"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun9(){
+        s=s+"9"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fun0(){
+        s=s+"0"
+        document.getElementById("T").innerHTML=s;
+    }
+    function funp(){
+        s=s+"+"
+        document.getElementById("T").innerHTML=s;
+    }
+    function funm(){
+        s=s+"-"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fune(){
+         s=s+"*"
+        document.getElementById("T").innerHTML=s;
+    }
+    function fund(){
+        s=s+"/"
+        document.getElementById("T").innerHTML=s;
+    }
+  function fun()
+  {
+    var i,a=0;
+    for(i=0;i<s.length;i++)
+    if(s.charAt(i)=="*")
+    a=a+parseInt(s.charAt(i-1))*parseInt(s.charAt(i+1));
+    for(i=0;i<s.length;i++)
+    if(s.charAt(i)=="+")
+    a=a+parseInt(s.charAt(i-1))+parseInt(s.charAt(i+1));
+    for(i=0;i<s.length;i++)
+    if(s.charAt(i)=="-")
+    a=a+parseInt(s.charAt(i-1))-parseInt(s.charAt(i+1));
+    for(i=0;i<s.length;i++)
+    if(s.charAt(i)=="/")
+    a=a+parseInt(s.charAt(i-1))/parseInt(s.charAt(i+1));
+    document.getElementById("T").innerHTML=a;
+    s=a;
+  }
+
+  </script>
+</head>
+<body>
+  <div style="height:800px;width:400px;background-color: aqua;margin-left:35%;">
+  <div style="height:150px;width:385px;background-color: aliceblue;margin-left:2%;" ><p id="T">ENTER</p></div>
+  <button style="margin-top:30px;margin-left:20%" onclick="funp()">+</button>
+  <button style="margin-top:30px;margin-left:20%;" onclick="funm()">-</button>
+  <button style="margin-top:30px;margin-left:20%" onclick="fund()">/</button>
+  <button style="margin-top:30px;margin-left:20%;" onclick="fune()">*</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun1()">1</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun2()">2</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun3()">3</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun4()">4</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun5()">5</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun6()">6</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun7()">7</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun8()">8</button>
+  <button style="margin-top:30px;margin-left:10%;" onclick="fun9()">9</button>
+  <button style="margin-top:30px;margin-left:163px;" onclick="fun0()">0</button>
+  <button style="margin-top:30px;margin-left:16px;height:250px;width:370px;" onclick="fun()">=</button>
+  </div>
+</body>
+</html>
