@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun()
+{
+    var a=["d1.png","d2.png","d3.png","d4.png","d5.png","d6.png"];
+    document.getElementById('demo').src=a[Math.floor(Math.random()*6)];
+}
+    </script>
+</head>
+<body style="background-color: black;"><center>
+    <img style="height:500px;width:500px;"  id="demo"><br>
+    <button style="border:sold white;background-color: red;height:50px;width:50px;" onclick="fun()"></button></center>
+</body>
+</html>
