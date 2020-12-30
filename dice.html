@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function fun()
-{
+    function fun()
+    {
     var a=["d1.png","d2.png","d3.png","d4.png","d5.png","d6.png"];
     document.getElementById('demo').src=a[Math.floor(Math.random()*6)];
-}
+    }
+    function Fun(){
+        var red = Math.floor(Math.random() * 256);
+       var blue = Math.floor(Math.random() * 256);
+       var green = Math.floor(Math.random() * 256);
+       document.getElementById('but').style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+    }
+    
     </script>
+    
 </head>
 <body style="background-color: black;"><center>
     <img style="height:500px;width:500px;"  id="demo"><br>
-    <button style="border:sold rgb(240, 230, 230);background-color: rgba(248, 14, 14, 0.842);height:90px;width:90px;border-radius:30%;" onclick="fun()"></button></center>
+    <div><button style="height:90px;width:90px;border-radius:30%;border:solid white;" onclick="fun();Fun()" id="but"><div></div></button></div></center>
 </body>
 </html>
