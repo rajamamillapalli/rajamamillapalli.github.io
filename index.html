@@ -1,42 +1,54 @@
-<!doctype htnl>
-<html>
-    <head>
-        <title>
-            FILES
-        </title>
-        <style>
-            body {
-              background-image: url('https://wallpapercave.com/wp/wp6604727.png');
-              background-repeat: no-repeat;
-              background-attachment: fixed;
-              background-size: cover;
-            }
-            button {
-  background-color: #dfe217; /* Green */
-  border: none;
-  color: rgb(217, 219, 62);
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script >
+        var a=0;
+function fun()
+{
+    var x= document.getElementById("myText").value;
+    var y= document.getElementById("demo2").value;
+    
+    if(x=="RAJA")
+    {
+        if(y=="123456")
+        {
+            window.open("index.html");
+        }
+        else
+        {
+            document.getElementById("demo").innerHTML="WRONG";
+        }
+    }
+    else
+    {
+        document.getElementById("demo").innerHTML="WRONG";
+    }
+    
 }
-
-            </style>
-            <link rel = "icon" href = "loading.jpg" 
-                    type = "image/x-icon"> 
-    </head>
-    <body ><center>
-       <br>
-
-        <h1 style="color: rgb(122, 13, 13);text-align: center;">PROJECTS</h1>
-
-        <button><a href="photos.html">PHOTOS</a></button>
-        <button><a href="cal.html">CALCULATOR</a></button>
-        <button><a href="Family.html">FAMILY</a></button>
-        <button><a href="dice.html">DICE</a></button>
-        </center>
-        
-    </body>
+    </script>
+</head><center>
+<body style="background-color: rgb(8, 65, 65);align-content: center;padding:15%">
+    <p id="demo" style="color:white;size: 20%;"></p>
+    <div style="height: 250px;width: 300px;background-color:beige;border-radius: 5%;"> 
+        <br>
+        <br>
+        <div style="height: 50px;width: 250px;background-color:rgb(100, 100, 58);border-radius: 5%;"> 
+            <input type="text" style="height: 50px;width: 250px;background-color:rgb(100, 100, 58);border-radius: 5%;" id="myText">
+        </div>
+        <br>
+        <div style="height: 50px;width: 250px;background-color:rgb(94, 94, 53);border-radius: 5%;"> 
+            <input style="height: 50px;width: 250px;background-color:rgb(100, 100, 58);border-radius: 5%;" id="demo2">
+        </div>
+        <br>
+        <br>
+   
+    <button style="background-color:rgb(120, 155, 23);height:25px;width:80px;" onclick="fun()" >LOGIN</button>
+  
+   
+</div>
+</center>
+</body>
 </html>
