@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+  <style>
+    div{
+      height: 250px;
+      width: 120px;
+      background-color: rgb(8, 8, 8);
+    
+      margin-top: 8%;
+      float: left;
+      margin-left: 13%;
+    }
+    .circle{
+      height: 65px;
+      width: 65px;
+      
+      border-radius: 50%;
+      margin-left: 23%;
+  
+    }
+    .center {
+ margin-left: 44.5%;
+}
+
+  </style>
+  <script>
+       function sleep(milliseconds) {  
+      return new Promise(resolve => setTimeout(resolve, milliseconds));  
+   }  
+    async function fun(){
+    var i=0;
+    var k=0;
+    var p=0;
+    while(1){
+        if(i==16){
+        i=00;}
+        if(i<10)
+        i="0"+i;
+       
+        document.getElementById("demo").innerHTML =i;
+        
+       
+        p=i;
+        if(p==0){
+        if(k==0){
+          document.getElementById("y2").style.backgroundColor="rgba(121, 121, 41, 0.555)";
+          document.getElementById("y4").style.backgroundColor="rgba(121, 121, 41, 0.555)";
+          document.getElementById("r1").style.backgroundColor="rgb(255, 0, 0)";
+          document.getElementById("r3").style.backgroundColor="rgb(255, 0, 0)";
+          document.getElementById("r2").style.backgroundColor="rgba(85, 40, 40, 0.664)";
+          document.getElementById("r4").style.backgroundColor="rgba(85, 40, 40, 0.664)";
+          
+          document.getElementById("g2").style.backgroundColor="rgb(0, 255, 0)";
+          document.getElementById("g4").style.backgroundColor="rgb(0, 255, 0)";
+          document.getElementById("g1").style.backgroundColor="rgba(72, 243, 14, 0.445";
+          document.getElementById("g3").style.backgroundColor="rgba(72, 243, 14, 0.445";
+          k=1;
+        }
+        else{
+          document.getElementById("y1").style.backgroundColor="rgba(121, 121, 41, 0.555)";
+          document.getElementById("y3").style.backgroundColor="rgba(121, 121, 41, 0.555)";
+          document.getElementById("r1").style.backgroundColor="rgba(85, 40, 40, 0.664)";
+          document.getElementById("r3").style.backgroundColor="rgba(85, 40, 40, 0.664)";
+          document.getElementById("r2").style.backgroundColor="rgb(255, 0, 0)";
+          document.getElementById("r4").style.backgroundColor="rgb(255, 0, 0)";
+          
+          document.getElementById("g1").style.backgroundColor="rgb(0, 255, 0)";
+          document.getElementById("g3").style.backgroundColor="rgb(0, 255, 0)";
+          document.getElementById("g2").style.backgroundColor="rgba(72, 243, 14, 0.445";
+          document.getElementById("g4").style.backgroundColor="rgba(72, 243, 14, 0.445";
+          k=0;
+
+        }
+
+        }
+        if(p==10){
+          if(k==1){
+            document.getElementById("y1").style.backgroundColor="rgb(255, 255, 0)";
+          document.getElementById("y3").style.backgroundColor="rgb(255, 255, 0)";
+        
+          }
+          else{
+            document.getElementById("y2").style.backgroundColor="rgb(255, 255, 0)";
+          document.getElementById("y4").style.backgroundColor="rgb(255, 255, 0)";
+          }
+        }
+        await sleep(1000);
+        i++; 
+    }
+}
+  </script>
+</head>
+
+<body style="background-color: rgba(201, 201, 56, 0.596);">  
+   <button onclick='fun()' style="height: 100px;width: 100px;float:left;background-color: red;color: white;border-radius: 50%;"><h1>STOP</h1></button>
+  
+  <div>
+    
+     <div class="circle" style="background-color:rgba(85, 40, 40, 0.664);" id="r1"></div>
+    
+     <div class="circle" style="background-color:rgba(121, 121, 41, 0.555);" id="y1"></div>
+  
+     <div class="circle" style="background-color:rgba(72, 243, 14, 0.445);" id="g1"></div>
+  </div>
+  
+  <div>
+    <div class="circle" style="background-color:rgba(85, 40, 40, 0.664);" id="r2"></div>
+    
+    <div class="circle" style="background-color:rgba(121, 121, 41, 0.555);" id="y2"></div>
+ 
+    <div class="circle" style="background-color:rgba(72, 243, 14, 0.445);" id="g2"></div>
+  </div>
+  
+  <div>
+    <div class="circle" style="background-color:rgba(85, 40, 40, 0.664);" id="r3"></div>
+    
+    <div class="circle" style="background-color:rgba(121, 121, 41, 0.555);" id="y3"></div>
+ 
+    <div class="circle" style="background-color:rgba(72, 243, 14, 0.445);" id="g3"></div>
+  </div>
+  <div>
+    <div class="circle" style="background-color:rgba(85, 40, 40, 0.664);" id="r4"></div>
+    
+    <div class="circle" style="background-color:rgba(121, 121, 41, 0.555);" id="y4"></div>
+ 
+    <div class="circle" style="background-color:rgba(72, 243, 14, 0.445);" id="g4"></div>
+  </div>
+ <div style="width: 180px;height: 175px;background-color: rgba(70, 82, 77, 0.425);border:solid rgb(19, 15, 15);border-radius: 5%;" class="center">
+
+     <p style="color: rgb(255, 38, 0);font-size:100px;margin-top: 10%;text-align: center;font-family: 'Orbitron', sans-serif;" id="demo"></p>
+  </div>
+ 
+</body>
+</html>
