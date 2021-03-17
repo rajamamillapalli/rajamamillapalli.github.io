@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a1{
+        height:80px;
+        width:0px;
+        background-color: yellow;
+        
+      animation-name:raja;
+        animation-duration:5s;
+        position: relative;
+        animation-timing-function:ease-out;
+        border-radius: 50%;
+       animation-iteration-count: infinite;
+        }
+        @keyframes raja{
+            1%{width:0;left:0px;top:0px;}
+            5%{width:80px;}
+            
+            100%{width:80px;left:1600px;top:0px}
+        }
+      
+    </style>
+   
+</head>
+<body style="background-color: cornflowerblue;">
+    <div style="animation-delay:0.9s;padding: 0%;" id="i1" ><p  style="color: rgb(10, 10, 10);font-size: 40px;text-align: center;padding: 16.5px 0; " id="p1">  </p></div>
+    <div  style="animation-delay:1s;padding: 0%;" id="i2"><p  style="color: rgb(20, 20, 20);font-size: 40px;text-align: center;padding: 16.5px 0;" id="p2">  </p></div>
+    <div  style="animation-delay:1.7s;padding: 0%;" id="i3"><p style="color: rgb(21, 22, 21);font-size: 40px;text-align: center;padding: 16.5px 0;" id="p3">  </p></div>
+    <div  style="animation-delay:1.5s;padding: 0%;" id="i4"><p  style="color: rgb(8, 8, 8);font-size: 40px;text-align: center;padding: 16.5px 0;" id="p4">  </p></div>
+ <script >
+     var f=0;
+     var s1=0,s2=0;
+        b=["A", "B", "C", "D", "E"];
+       function sleep(milliseconds) {  
+      return new Promise(resolve => setTimeout(resolve, milliseconds));  
+   }  
+  
+   async function fun(){
+while(1){   
+f=4;  
+a=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+b[0]=a[Math.floor(Math.random()*26)];
+b[1]=a[Math.floor(Math.random()*26)];
+b[2]=a[Math.floor(Math.random()*26)];
+b[3]=a[Math.floor(Math.random()*26)];
+
+document.getElementById('p1').innerHTML=b[0];
+document.getElementById('i1').style.backgroundColor="yellow";
+document.getElementById("i1").className = "a1";
+document.getElementById('p2').innerHTML=b[1];
+document.getElementById('i2').style.backgroundColor="yellow";
+document.getElementById("i2").className = "a1";
+document.getElementById('p3').innerHTML=b[2];
+document.getElementById('i3').style.backgroundColor="yellow";
+document.getElementById("i3").className = "a1";
+document.getElementById('p4').innerHTML=b[3];
+document.getElementById('i4').style.backgroundColor="yellow";
+document.getElementById("i4").className = "a1";
+
+
+await sleep(5000);
+s1=s1+(4-f);
+s2=s2-f;
+document.getElementById("s1").innerHTML=s2;
+document.getElementById("s2").innerHTML=s1;
+}
+}
+fun()
+function fun1(event){
+    var x = event.keyCode;         
+  var y = String.fromCharCode(x);
+       if(y==b[0]){
+       document.getElementById('i1').style.backgroundColor="green";
+        f=f-1;}
+       else if(y==b[1]){
+       document.getElementById('i2').style.backgroundColor="green";
+       f=f-1;}
+       else if(y==b[2]){
+       document.getElementById('i3').style.backgroundColor="green";
+       f=f-1;}
+       else if(y==b[3]){
+       document.getElementById('i4').style.backgroundColor="green";
+       f=f-1;}
+
+     
+   }
+</script>
+<div style="width:150px;height:150px;border-radius:5%;background-color: rgb(248, 244, 244);float:right;" ><p style="color: rgb(20, 19, 19);font-size:100px;margin-top: 10%;text-align: center;" id="s1"></p></div>
+<input type="text" style="width:1010px;height: 25px;margin-left: 10.8px;color: rgb(61, 131, 46);" onkeypress="fun1(event)">
+
+<div style="width:150px;height:150px;border-radius:5%;background-color: rgb(250, 246, 246);float:left;"><p style="color: rgb(20, 19, 19);font-size:100px;margin-top: 10%;text-align: center;" id="s2"></p></div>
+<p style="font-size:100px;margin-top: 0%;color: red;text-align: center;">-----score-----</p>
+</body>
+</html>
