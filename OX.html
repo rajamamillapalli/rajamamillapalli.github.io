@@ -15,7 +15,7 @@
         text-align: center;
         }
         .a1{
-            animation-duration: 5s;
+            animation-duration: 3s;
           font-size: 0px;
             animation-name: raja;
            color: rgba(146, 66, 34, 0.904);
@@ -23,7 +23,7 @@
             
         }
         @keyframes raja{
-            100%{font-size: 150px;}
+            100%{font-size:300%;}
         }
     </style>
     <script >
@@ -49,9 +49,14 @@ function fun(x){
         document.getElementById("i").innerHTML="PLAYER 1 WON";
         document.getElementById("i").classList.add("a1");
     }
-    if((a[0]==2 && a[1]==2 && a[2]==2) || (a[3]==2 && a[4]==2 && a[5]==2) || (a[6]==2 && a[7]==2 && a[8]==2) || (a[0]==2 && a[4]==2 && a[8]==2) || (a[2]==2 && a[4]==2 && a[6]==2) ||  (a[0]==2 && a[3]==2 && a[6]==2) || (a[1]==2 && a[4]==2 && a[7]==2) || (a[2]==2 && a[5]==2 && a[8]==2)  ){
+    else if((a[0]==2 && a[1]==2 && a[2]==2) || (a[3]==2 && a[4]==2 && a[5]==2) || (a[6]==2 && a[7]==2 && a[8]==2) || (a[0]==2 && a[4]==2 && a[8]==2) || (a[2]==2 && a[4]==2 && a[6]==2) ||  (a[0]==2 && a[3]==2 && a[6]==2) || (a[1]==2 && a[4]==2 && a[7]==2) || (a[2]==2 && a[5]==2 && a[8]==2)  ){
         document.getElementById("i").innerHTML="PLAYER 2 WON";
         document.getElementById("i").classList.add("a1");
+    }
+    else if(t==9){
+        document.getElementById("i").innerHTML="DRAW";
+        document.getElementById("i").classList.add("a1");
+
     }
 }
     </script>
