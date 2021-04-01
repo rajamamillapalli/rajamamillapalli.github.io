@@ -48,10 +48,12 @@ function fun(x){
     if((a[0]==1 && a[1]==1 && a[2]==1) || (a[3]==1 && a[4]==1 && a[5]==1) || (a[6]==1 && a[7]==1 && a[8]==1) || (a[0]==1 && a[4]==1 && a[8]==1) || (a[2]==1 && a[4]==1 && a[6]==1) ||  (a[0]==1 && a[3]==1 && a[6]==1) || (a[1]==1 && a[4]==1 && a[7]==1) || (a[2]==1 && a[5]==1 && a[8]==1)  ){
         document.getElementById("i").innerHTML="PLAYER 1 WON";
         document.getElementById("i").classList.add("a1");
+        document.getElementById("fall").style.display="inline";
     }
     else if((a[0]==2 && a[1]==2 && a[2]==2) || (a[3]==2 && a[4]==2 && a[5]==2) || (a[6]==2 && a[7]==2 && a[8]==2) || (a[0]==2 && a[4]==2 && a[8]==2) || (a[2]==2 && a[4]==2 && a[6]==2) ||  (a[0]==2 && a[3]==2 && a[6]==2) || (a[1]==2 && a[4]==2 && a[7]==2) || (a[2]==2 && a[5]==2 && a[8]==2)  ){
         document.getElementById("i").innerHTML="PLAYER 2 WON";
         document.getElementById("i").classList.add("a1");
+        document.getElementById("fall").style.display="inline";
     }
     else if(t==9){
         document.getElementById("i").innerHTML="DRAW";
@@ -63,12 +65,13 @@ function fun(x){
 </head><center>
 <body style="margin-top: 10%;background-image: linear-gradient(180deg, rgb(158, 133, 78), yellow); background-repeat: no-repeat;background-color: yellow;">
     <p  id="i"></p>
+    
+    <img src="paperfall.gif" style="position: absolute;width: 300px;display: none;" id="fall">  
+    <button class="box" onclick="fun(1)" id="b1" style="font-size:50px;color: red;">o</button>
+    <button class="box"  onclick="fun(2)" id="b2" style="font-size:50px;color: red;">o</button>
+       <button class="box"  onclick="fun(3)"id="b3" style="font-size:50px;color: red;">o</button>
     <div>
-    <div> 
-       
-        <button class="box" onclick="fun(1)" id="b1" style="font-size:50px;color: red;">o</button>
-           <button class="box"  onclick="fun(2)" id="b2" style="font-size:50px;color: red;">o</button>
-              <button class="box"  onclick="fun(3)"id="b3" style="font-size:50px;color: red;">o</button></div>
+   
               
     <div> 
         <button class="box"  onclick="fun(4)"id="b4" style="font-size:50px;color: red;">o</button>
