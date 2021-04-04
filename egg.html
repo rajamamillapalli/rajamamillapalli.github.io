@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+       
+        .egg{
+            background-color: white;
+            width:0px;
+            height:0px;
+            border-radius: 50% 50% 45% 45%;
+            animation-name: fall;
+            animation-duration: 5s;
+            position: relative;
+            animation-fill-mode: both;
+        }
+        @keyframes fall{
+          0%{top:0px;left:0px;width:70px;height:100px;}
+          99%{left:0px;width:70px;height:100px;}
+          
+            100%{top:470px;left:0px}
+        }
+ 
+    </style>
+    <script>
+      var l=0;
+      var t=0;
+      var s=0;
+      var f=0;
+      function sleep(milliseconds) {  
+      return new Promise(resolve => setTimeout(resolve, milliseconds));  
+      }
+      async function tun(){
+        if(l>=0 && l<=50 && t==5 && f==1){
+      s+=1;
+      f=0}
+      if(l>=100 && l<=150 && t==15 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=200 && l<=300 && t==25 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=350 && l<=400 && t==40 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=450 && l<=550 && t==10 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=600 && l<=650 && t==30 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=700 && l<=800 && t==45 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=850 && l<=900 && t==20 && f==1){
+      s+=1;
+      f=0;}
+      if(l>=950 && l<=1000 && t==35 && f==1){
+      s+=1;
+      f=0;}
+      m="SCORE:"+s;
+      document.getElementById("px").innerHTML=m;
+      await sleep(1000);
+      t+=1;
+      if(t%5==0)
+      f=1;
+      if(t>45)
+      t=0;
+      tun();
+      }
+    
+      async function fun1(){
+        if(l<=0)
+        l=1000;
+        else
+        l=l-50;  
+        var m=l+"px";
+      document.getElementById("but").style.marginLeft=m;
+      
+     
+      
+    }
+    async function fun2(){
+      if(l==0)
+      l=l+50;
+      else
+      l=l+50;
+      if(l>1000)
+      l=0;
+      var m=l+"px";
+      document.getElementById("but").style.marginLeft=m;
+     
+     
+    } 
+    
+   
+    </script>
+</head>
+<body style="background-image: linear-gradient(180deg, rgb(78, 158, 145), rgb(0, 140, 255));">
+ <p id="px" style="text-align: center;color: red;font-size: large;background-color: aliceblue;"> </p>
+<div style="display:inline-block;width: 1340px;"> 
+  <div  style="display:inline-block;margin-right: 50px;margin-left: 130px; width:70px;height:100px;" id="e1"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e2"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e3"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e4"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e5"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e6"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e7"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e8"></div>
+  <div  style="display:inline-block;margin-right: 50px;animation-delay:0s;width:70px;height:100px;"  id="e9"></div>
+  <div><button style="width: 60px;height:60px;margin-top:400px;float: left;" onclick="fun1()"></button>
+   
+      <img src="butta.png" style="width:200px;margin-top:420px;margin-left:0px;" id="but">
+      
+
+  <button style="width: 60px;height:60px;margin-top:400px;float: right;" onclick="fun2()"></button></div>
+</div> 
+<script>
+  fun();
+  tun();
+    function sleep(milliseconds) {  
+    return new Promise(resolve => setTimeout(resolve, milliseconds));  
+ }  
+ async function fun(){
+  while(1){
+    await sleep(1000);
+    document.getElementById("e1").classList.add("egg");
+    await sleep(5000);
+    document.getElementById("e1").classList.remove("egg");
+    document.getElementById("e5").classList.add("egg");
+    await sleep(5000);
+   document.getElementById("e5").classList.remove("egg");
+    document.getElementById("e2").classList.add("egg");
+    await sleep(5000);
+    document.getElementById("e2").classList.remove("egg");
+    document.getElementById("e8").classList.add("egg");
+    await sleep(5000);
+   document.getElementById("e8").classList.remove("egg");
+    document.getElementById("e3").classList.add("egg");
+    await sleep(5000);
+   document.getElementById("e3").classList.remove("egg");
+    document.getElementById("e6").classList.add("egg");
+    await sleep(5000);
+   document.getElementById("e6").classList.remove("egg");
+    document.getElementById("e9").classList.add("egg");
+    await sleep(5000);
+   document.getElementById("e9").classList.remove("egg");
+    document.getElementById("e4").classList.add("egg");
+    await sleep(5000);
+   document.getElementById("e4").classList.remove("egg");
+    document.getElementById("e7").classList.add("egg");
+    await sleep(5000);
+    document.getElementById("e7").classList.remove("egg");
+    
+  }
+}
+  
+</script>
+</body>
+</html>
