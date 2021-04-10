@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    button{
+        text-decoration: none;
+        margin-left:0%;
+        display: block;
+        height: 30px;
+        background-color:beige;
+        border:1px solid black;
+        width: 150px;
+        color: black;
+    }
+    li{
+        text-decoration: none;
+        display: block;
+        width: 150px;
+     
+        margin-left:0%;
+       
+        
+    }
+    ol{
+        margin-left:0%;
+        padding: 0% 0% 0% 0%;
+        height: 100%;
+       position: fixed;
+       width: 150px;
+       background-color: beige;
+    }
+    li button:hover {
+  background-color:white;
+  color:black;
+}
+    </style>
+    <script>
+
+        var b=1;
+        function fun(s,n){
+            document.getElementById("if").src=s;
+            document.getElementById("b"+b).style.backgroundColor="beige";
+            document.getElementById("b"+b).style.Color="black"
+            document.getElementById("b"+n).style.backgroundColor="rgb(100, 100, 58)";
+            document.getElementById("b"+n).style.Color="white";
+            b=n;
+        }
+    </script>
+</head>
+<body>
+    <p style="background-color: rgb(8, 65, 65);width: 1340px;margin-bottom: 0%;height: 40px;position: -webkit-sticky;position:sticky;margin-top: 0%;text-align: right;color: white;font-size: 220%; ">RajaMamillapalli</p>
+    <ol style="margin-top: 0%;">
+        <li type="none">
+            <button  onclick='fun("photos.html",1)' id="b1" style="background-color:rgb(100, 100, 58);">PHOTOS</button>
+        </li>
+        <li type="none">
+            <button onclick='fun("cal.html",2)' id="b2">CALCULATOR</button>
+        </li>
+        <li type="none">
+            <button  onclick='fun("family.html",3)' id="b3">FAMILY</button>
+        </li>
+        <li type="none">
+            <button onclick='fun("dice.html",4)' id="b4">DICE</button>
+        </li>
+        <li type="none">
+            <button  onclick='fun("TRFLIT.html",5)' id="b5">TRFLIT</button>
+        </li>
+        <li type="none">
+            <button onclick='fun("KEYTEXT.html",6)' id="b6">KEYTEXT</button>
+        </li>
+        <li type="none">
+            <button  onclick='fun("ox.html",7)' id="b7">OX</button>
+        </li>
+        <li type="none">
+            <button  onclick='fun("egg.html",8)' id="b8">EGG</button>
+        </li>
+    </ol>
+    <iframe src="photos.html" style="margin-left: 140px;width:1200px;height:601px;" id="if"></iframe>
+</body>
+</html>
