@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+           
+  overflow-y: hidden;
+
+
+            
+        }
+       .infinite{
+           position: relative;
+           width: 500px;
+           height: 655px;
+           background:rgb(0, 0, 0);
+       }
+       .infinite:before
+       {
+             content: '';
+             position: absolute;
+             
+             transform: translatex(-50%);
+             left: 0;
+             width: 50px;
+             left: 50%;
+             height: 100%;
+             background: linear-gradient(180deg,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 50%,rgb(0, 0, 0) 50%,rgb(0, 0, 0) 100%);
+             background-size:120px ;
+             animation: animate 2.5s linear infinite;
+       }
+       @keyframes animate{
+           0%{background-position:0px 0px;}
+           100%{background-position:0px 650px;}
+       }
+       .coin{
+           width: 120px;
+         
+          
+           border-radius: 50%;
+           animation: move;
+        position: relative;
+        animation-duration:2s;
+        animation-fill-mode: both;
+        
+       }
+      
+       @keyframes move{
+           0%{top:-150px;width:130px; }
+           100%{top:650px;width: 130px; }
+
+       }
+      
+       
+    </style>
+   <script>
+       var m=0;
+       var t=0;
+       var r1=0,r2=1;
+       var c=["c1.png","c2.png","c3.png","c4.png","c5.png","c6.png",]
+       function sleep(milliseconds){  
+      return new Promise(resolve => setTimeout(resolve, milliseconds));  
+      }
+   
+      async function fun(){
+        
+          while(1){
+              var s=c[Math.floor(Math.random()*6)]
+             
+              if(t%2!=0 ){
+                document.getElementById("c1").classList.add("coin");
+                
+                document.getElementById("c1").src = s;
+              }
+              if(t%2==0 ){
+                document.getElementById("c2").classList.add("coin");
+                document.getElementById("c2").src = s;
+              }
+              
+              await sleep(1000);
+              if(m==60 && t%2==1){
+              document.getElementById("p").innerHTML="CR⚡SH";
+              document.getElementById("p").style.color="red";
+              fun1();}
+              if(m==330 && t%2==0){
+              document.getElementById("p").innerHTML="CR⚡SH";
+              document.getElementById("p").style.color="red";
+             
+              fun1();}
+              await sleep(1000);
+              if(t%2!=0 ){
+              document.getElementById("c1").classList.remove("coin");
+              document.getElementById('c1').removeAttribute('src');}
+             
+              if(t%2==0 ){
+              document.getElementById("c2").classList.remove("coin");
+              document.getElementById('c2').removeAttribute('src');}
+              t+=1;
+          }
+        }
+    function mov1(){
+      m=60;
+      document.getElementById("c").style.marginLeft="60px";
+      
+              
+          
+    }
+    function mov2(){
+      m=330;
+      document.getElementById("c").style.marginLeft="330px";
+    
+    }
+    function fun1(){
+     fun1(); 
+
+    }
+   </script>
+</head>
+<body style="background:radial-gradient(green,rgb(133, 219, 133))" >
+ 
+<button style="float: right;width: 30px;" onclick="mov1()"></button>
+
+<div class="infinite">
+  <p id="p" style="font-size: 100px;margin-left: 45px;color: red;color: black;" >.</p>
+    <img src="car.png" style="margin-top: 130px;width: 100px;margin-left: 330px;" id="c">
+</div>
+
+<img  style="margin-right: 50px;width:120px;margin-left: -450px;width:100px;height: 280px;" id="c1">
+    <img  style="width:120px;width:100px;height: 280px;margin-left: 120px;" id="c2">
+  
+
+<button style="width: 30px;margin-left: 51px;" onclick="mov2()"></button>
+
+  <script>fun();
+  
+  re();
+  
+  </script>
+</body>
+</html>
