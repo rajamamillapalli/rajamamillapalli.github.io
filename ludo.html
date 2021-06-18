@@ -60,10 +60,12 @@
     var bc=0;
     var col=["yellow","green","blue","red"];
     function die(){
-        if(bc==4){
+        if(bc==4 && d!=6){
         bc=0;}
-        d=Math.floor(Math.random()*6)+1;
+        if(d!=6)
         bc=bc+1;
+        d=Math.floor(Math.random()*6)+1;
+       
         document.getElementById("dd").innerHTML=d; 
         document.getElementById("ddd").style.backgroundColor=col[bc-1];
        
