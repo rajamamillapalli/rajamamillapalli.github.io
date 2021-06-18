@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .but{
+            width:32px;
+         height: 32px;
+         border-radius: 0%;border: 1px solid black;background-color: white;
+         margin-left: -2px;
+         background-color: white;
+        }
+        .in{
+            width: 75px;
+            height: 75px;
+           }
+        .circle1{
+             width: 50px;
+             height: 50px;
+             border-radius:50% ;
+             margin-left: 10%;
+          
+                }
+        .circle2{
+            width: 20px;
+            height: 20px;
+            border-radius:50% ;
+            background-color: rgba(255, 255, 255, 0);
+            
+        }
+        .tie{
+      width: 0px; 
+  height: 0px; 
+  border-left: 50px solid  rgb(247, 247, 158);
+  border-right: 50px solid  rgb(204, 69, 69);
+  border-top: 50px solid rgb(124, 250, 134);
+  border-bottom: 50px solid rgb(125, 138, 255);
+    }
+    .t{
+        width: 0px; 
+  height: 0px; 
+  padding: 0%;
+  margin: 0%;
+  margin-left: -5px;
+  border-left: 15px solid yellow;
+  border-right: 15px solid  red;
+  border-top: 15px solid green;
+  border-bottom: 15px solid blue;
+    }
+    </style>
+  <script>
+    var a=[[0,0,0,0],[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var pl=Array(52).fill(0);
+    var p=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    var  d;
+    var t=0;
+    var bc=0;
+    var col=["yellow","green","blue","red"];
+    function die(){
+        if(bc==4){
+        bc=0;}
+        d=Math.floor(Math.random()*6)+1;
+        bc=bc+1;
+        document.getElementById("dd").innerHTML=d; 
+        document.getElementById("ddd").style.backgroundColor=col[bc-1];
+       
+    }
+    function fun1(r,c){
+        if(1){
+         if(d==6 && p[r][c]==0){
+         var i="i"+r+c;
+         if(r==0){
+         document.getElementById(i).style.backgroundColor="rgba(255, 255, 255, 0)";
+         document.getElementById("p10").innerHTML=a[1][0]+1;
+         p[r][c]=1;
+         a[1][0]+=1;}
+         if(r==1){
+         document.getElementById(i).style.backgroundColor="rgba(255, 255, 255, 0)";
+         document.getElementById("p141").innerHTML=a[14][1]+1;
+         p[r][c]=1;
+         a[14][1]+=1;}
+         if(r==2){
+         document.getElementById(i).style.backgroundColor="rgba(255, 255, 255, 0)";
+         document.getElementById("p402").innerHTML=a[40][2]+1;
+         p[r][c]=1;
+         a[40][2]+=1;}
+         if(r==3){
+         document.getElementById(i).style.backgroundColor="rgba(255, 255, 255, 0)";
+         document.getElementById("p273").innerHTML=a[27][3]+1;
+         p[r][c]=1;
+         a[27][3]+=1;}
+         }  
+    }}
+    function fun2(b,i){
+        if(a[b][i]!=0){
+              a[b][i]-=1;
+              document.getElementById("p"+b+i).innerHTML= a[b][i];
+              var x=b+d;
+              if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                  fun3(x,i); 
+              }
+              else{
+              document.getElementById("b"+x).style.backgroundColor=col[i];
+              a[b+d]=i+1;}
+        }
+}
+function fun3(x,i){
+    a[x][i]+=1;
+    document.getElementById("p"+x+i).innerHTML= a[x][i];
+    
+}
+    function fun(b){
+        if(1){
+            if(!(b==1 || b==14 || b==27 || b==40 ||b==49||b==10||b==23||b==36)){
+            var pr=a[b]-1;
+            var pc=a[b+d]-1;}
+            if(b==49 && bc==1 && a[b][0] && d!=1 && d!=2){
+                a[49][0]-=1
+                document.getElementById("p490").innerHTML= a[49][0];
+                if(b<=51)
+                var x=b+d+1;
+                else
+                var x=b+d;
+                if(x<=58){
+                if(x==52)
+                x=51;}
+                document.getElementById("b"+x).style.backgroundColor=col[bc-1];
+                a[x]=bc;}
+            else if(b==10 && bc==2 && a[b][1] && d!=1 && d!=2){
+               
+                a[10][1]-=1
+                document.getElementById("p101").innerHTML= a[10][1];
+                if((b==12 || b+d>12) && b<14){
+               if(b==12){
+                   x=57+d;
+               }
+               else{
+                   x=b+d-12;
+                   x=57+x;
+               }
+               if(b+d==12)
+               x=12
+              
+                document.getElementById("b"+x).style.backgroundColor=col[bc-1];
+                a[x]=bc;}
+            }
+            else if(b==36 && bc==3 && a[b][2] && d!=1 && d!=2){
+                a[36][2]-=1
+                document.getElementById("p362").innerHTML= a[36][2];
+              
+               if(b==38){
+                   x=62+d;
+               }
+               else{
+                   x=b+d-38;
+                   x=62+x;
+               }
+               
+                
+                document.getElementById("b"+x).style.backgroundColor=col[bc-1];
+              
+                a[x]=bc;
+            }
+
+            
+            else if(b==23 && bc==4 && a[b][3] && d!=1 && d!=2){
+                a[23][3]-=1
+                document.getElementById("p233").innerHTML= a[23][3];
+                if(b==25){
+                   x=67+d;
+               }
+               else{
+                   x=b+d-25;
+                   x=x+67;
+               }
+               document.getElementById("b"+x).style.backgroundColor=col[bc-1];
+              
+                a[x]=bc;
+            }  
+        else if(b==1 || b==14 || b==27 || b==40 || ((b==49 && bc!=1)||(b==49 && (d==1||d==2)))||((b==10 && bc!=2)||(b==10 && (d==1||d==2))) || ((b==23 && bc!=3)||(b==23 && (d==1||d==2))) || ((b==36 && bc!=4)||(b==36 && (d==1||d==2)))){
+        fun2(b,bc-1);}
+        else if(a[b]==1 ){
+            if(b>=51 || b+d>=51){
+                if(b<=51)
+                var x=b+d+1;
+                else
+                var x=b+d;
+                if(x<=58){
+                if(x==52)
+                x=51;
+                if(x==58){
+                    document.getElementById("F0").innerHTML=a[0][0]+1;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][0]+=1;
+                    a[b]=0;
+                }
+               else{
+              
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];}
+                a[b]=0;
+                a[x]=pr+1;
+            }}
+            
+            else if(b+d!=1 && b+d!=14&&b+d!=27&&b+d!=40&&b+d!=49&& b+d!=10 && b+d!=23 &&b+d!=36&&a[b+d]!=0){
+                var x=b+d;
+                     if(p[pc][0]){
+                        document.getElementById("i"+pc+0).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][0]=0;
+                        a[b]=0;
+                        a[x]=pr+1;
+                     }
+                     else if(p[pc][1]){
+                        document.getElementById("i"+pc+1).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][1]=0;
+                        a[b]=0;
+                        a[x]=pr+1;
+                    
+                     }
+                     else if(p[pc][2]){
+                        document.getElementById("i"+pc+2).style.backgroundColor=col[pc];
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][2]=0;
+                        a[b]=0;
+                        a[x]=pr+1;
+                     }
+                     else if(p[pc][3]){
+                        document.getElementById("i"+pc+3).style.backgroundColor=col[pc]
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][3]=0;
+                        a[b]=0;
+                       a[x]=pr+1;
+                     }
+                 
+            }
+            else{
+                var x=b+d;
+                if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                    document.getElementById("dd").innerHTML=d+" "+bc+"**"; 
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+               
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+        }
+        else if((a[b]==2) ){
+            if((b==12 || b+d>12) && b<14){
+               if(b==12){
+                   x=57+d;
+               }
+               else if (b<12){
+                   x=b+d-12;
+                   x=57+x;
+               }
+               if(x==63){
+                    document.getElementById("F1").innerHTML=(a[0][1]+1)+"#"+b;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][1]+=1;
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr+1];
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+            else if(b==52 ||b+d>52)
+            {
+              if(b==52){
+                  x=d;
+              }
+              if(b>52){
+                  x=b+d;
+              }
+
+              else{
+                  x=b+d-52;
+              }
+              if(x<=63){
+                if(x==63){
+                    document.getElementById("F1").innerHTML=a[0][1]+1;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][1]+=1;
+                    a[0][1]+=1;
+                    a[b]=0;
+                }
+                else if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+                a[b]=0;
+                a[x]=pr+1;}
+              }
+             
+            }
+            else if(b+d!=1 && b+d!=14&&b+d!=27&&b+d!=40&&b+d!=49&& b+d!=10&&b+d!=23&&b+d!=36&&a[b+d]!=0){
+                    var x=b+d;
+                     if(p[pc][0]){
+                        document.getElementById("i"+pc+0).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][0]=0;
+                        a[b]=0;
+                        a[x]=pr+1;
+
+                     }
+                     else if(p[pc][1]){
+                        document.getElementById("i"+pc+1).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][1]=0;
+                        a[b]=0;
+                       a[x]=pr+1;
+                     }
+                     else if(p[pc][2]){
+                        document.getElementById("i"+pc+2).style.backgroundColor=col[pc];
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                       p[pc][2]=0;
+                       a[b]=0;
+                      a[x]=pr+1;
+                     }
+                     else if(p[pc][3]){
+                        document.getElementById("i"+pc+3).style.backgroundColor=col[pc]
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                       p[pc][3]=0;
+                       a[b]=0;
+                      a[x]=pr+1;
+                     }
+                 
+            }
+            else{
+                var x=b+d;
+                if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                   
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+               
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+        }
+
+          else  if(a[b]==3 ){
+                if((b==38 || b+d>38) && b<40){
+               if(b==38){
+                   x=62+d;
+               }
+               else if(b<38){
+                   x=b+d-38;
+                   x=62+x;
+               }
+               else{
+                   x=b+d;
+               }
+               if(x==68){
+                    document.getElementById("F2").innerHTML=a[0][2]+1;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][2]+=1;
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+            else if(b==52 ||b+d>52)
+            {
+              if(b==52){
+                  x=d;
+              }
+              if(b>52){
+                  x=b+d;
+              }
+
+              else{
+                  x=b+d-52;
+              }
+              if(x<=68){
+                if(x==68){
+                    document.getElementById("F2").innerHTML=a[0][2]+1;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][2]+=1;
+                    a[b]=0;
+                }
+                else{
+                if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                   
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+               
+                a[b]=0;
+                a[x]=pr+1;}}
+              }
+             
+            }
+            else if(b+d!=1 && b+d!=14&&b+d!=27&&b+d!=40&&b+d!=49&& b+d!=10&&b+d!=23&&b+d!=36&&a[b+d]!=0){
+                    var x=b+d;
+                     if(p[pc][0]){
+                        document.getElementById("i"+pc+0).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][0]=0;
+                        a[b]=0;
+                        a[x]=pr+1;
+
+                     }
+                     else if(p[pc][1]){
+                        document.getElementById("i"+pc+1).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][1]=0;
+                        a[b]=0;
+                       a[x]=pr+1;
+                     }
+                     else if(p[pc][2]){
+                        document.getElementById("i"+pc+2).style.backgroundColor=col[pc];
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                       p[pc][2]=0;
+                       a[b]=0;
+                      a[x]=pr+1;
+                     }
+                     else if(p[pc][3]){
+                       document.getElementById("i"+pc+3).style.backgroundColor=col[pc]
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                       p[pc][3]=0;
+                       a[b]=0;
+                       a[x]=pr+1;
+                     }
+                 
+            }
+            else{
+                var x=b+d;
+                if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                    
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+               
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+        }
+       else  if(a[b]==4){
+            if((b==25 || b+d>25) && b<27){
+               if(b==25){
+                   x=67+d;
+               }
+               else{
+                   x=b+d-25;
+                   x=x+67;
+               }
+               if(x==73){
+                    document.getElementById("F3").innerHTML=a[0][3]+1;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][3]+=1;
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+            else if(b==52 ||b+d>52)
+            {
+              if(b==52){
+                  x=d;
+              }
+              if(b>52){
+                  x=b+d;
+              }
+
+              else{
+                  x=b+d-52;
+              }
+              if(x<=73){
+                if(x==73){
+                    document.getElementById("F3").innerHTML=a[0][3]+1;
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[0][3]+=1;
+                    a[b]=0;
+                }
+                else{
+                    if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                  
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+               
+                a[b]=0;
+                a[x]=pr+1;}}
+              }
+             
+            }
+            else if(b+d!=1 && b+d!=14&&b+d!=27&&b+d!=40&&b+d!=49&& b+d!=10&&b+d!=23&&b+d!=36&&a[b+d]!=0){
+                    var x=b+d;
+                     if(p[pc][0]){
+                        document.getElementById("i"+pc+0).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][0]=0;
+                        a[b]=0;
+                        a[x]=pr+1;
+
+                     }
+                     else if(p[pc][1]){
+                        document.getElementById("i"+pc+1).style.backgroundColor=col[pc];
+                        document.getElementById("b"+x).style.backgroundColor=col[pr];
+                        document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                        p[pc][1]=0;
+                        a[b]=0;
+                       a[x]=pr+1;
+                     }
+                     else if(p[pc][2]){
+                        document.getElementById("i"+pc+2).style.backgroundColor=col[pc];
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                       p[pc][2]=0;
+                       a[b]=0;
+                      a[x]=pr+1;
+                     }
+                     else if(p[pc][3]){
+                        document.getElementById("i"+pc+3).style.backgroundColor=col[pc]
+                       document.getElementById("b"+x).style.backgroundColor=col[pr];
+                       document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                       p[pc][3]=0;
+                       a[b]=0;
+                      a[x]=pr+1;
+                     }
+                 
+            }
+            else{
+                var x=b+d;
+                
+                if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
+                    
+                    fun3(x,bc-1);
+                    document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                    a[b]=0;
+                }
+                else{
+                document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
+                document.getElementById("b"+x).style.backgroundColor=col[pr];
+               
+                a[b]=0;
+                a[x]=pr+1;}
+            }
+        }
+    }
+   
+    }
+
+
+</script>
+</head>
+<body style="background-image: linear-gradient(180deg, rgb(248, 0, 0), yellow)"><center>
+    <p id="p"></p>
+    <div style="background-color:rgb(0, 255, 242) ;width:500px;height: 500px;">
+   
+       <div style="background-color: rgb(247, 247, 158);width:200px;height: 200px;float: left;">
+        <div style="background-color:rgb(248, 248, 248) ;width:150px;height: 150px;margin-top: 25px;">
+            <button  class="in" onclick="fun1(0,0)" style="border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i00" style=" background-color: yellow;"></div></button>
+            <button  class="in" onclick="fun1(0,1)" style="float: right;border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i01" style=" background-color: yellow;"> </div></button>
+            <button  class="in" onclick="fun1(0,2)" style="border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i02" style=" background-color: yellow;"></div></button>
+            <button  class="in" onclick="fun1(0,3)" style="float: right;border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i03" style=" background-color: yellow;"></div></button>
+           
+        </div>
+     </div>
+     <div style="height: 200px;width: 100px;background-color: rgb(99, 91, 91);float: left;margin: 0%;padding: 0%;">
+        <button class="but"  onclick="fun(11)"><div class="circle2" id="b11"></div></button>
+        <button class="but"  onclick="fun(12)"><div class="circle2" id="b12"></div></button>
+        <button class="but"  onclick="fun(13)"><div class="circle2" id="b13"></div></button>
+        <button class="but"  onclick="fun(10)"><div class="t" id="b10">            
+            <div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p100">0</p></div>
+            <div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p101">0</p></div>
+            <div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p102">0</p></div>
+            <div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p103">0</p></div>
+        </div>10</button>
+        <button class="but"  onclick="fun(58)" style="background-color: rgb(124, 250, 134);"><div class="circle2" id="b58"></div></button>
+        <button class="but" onclick="fun(14)" style="background-color: rgb(124, 250, 134);"><div class="t" id="b14">            
+<div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p140">0</p></div>
+<div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p141">0</p></div>
+<div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p142">0</p></div>
+<div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p143">0</p></div>
+        </div></button>
+        <button class="but" onclick="fun(9)"><div class="circle2" id="b9"></div></button>
+        <button class="but" onclick="fun(59)"style="background-color: rgb(124, 250, 134);"><div class="circle2" id="b59"></div></button>
+        <button class="but" onclick="fun(15)"><div class="circle2" id="b15"></div></button>
+        <button class="but" onclick="fun(8)"><div class="circle2" id="b8"></div></button>
+        <button class="but" onclick="fun(60)" style="background-color: rgb(124, 250, 134);"><div class="circle2" id="b60"></div></button>
+        <button class="but" onclick="fun(16)"><div class="circle2"id="b16" ></div></button>
+        <button class="but" onclick="fun(7)"><div class="circle2" id="b7"></div></button>
+        <button class="but" onclick="fun(61)" style="background-color: rgb(124, 250, 134);"><div class="circle2" id="b61"></div></button>
+        <button class="but" onclick="fun(17)"><div class="circle2" id="b17"></div></button>
+        <button class="but" onclick="fun(6)"><div class="circle2" id="b6"></div></button>
+        <button class="but" onclick="fun(62)" style="background-color: rgb(124, 250, 134);"><div class="circle2" id="b62"></div></button>
+        <button class="but" onclick="fun(18)"><div class="circle2" id="b18"></div></button>
+       
+       </div>
+     
+     <div style="background-color:rgb(124, 250, 134);width:200px;height: 200px;float: right;">
+        <div style="background-color:rgb(248, 248, 248) ;width:150px;height: 150px;margin-top: 25px;">
+         <button  class="in" onclick="fun1(1,0)" style="border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i10" style=" background-color:green;"></div></button>
+         <button  class="in" onclick="fun1(1,1)" style="float: right;border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i11"  style=" background-color:green;"></div></button>
+         <button  class="in" onclick="fun1(1,2)" style="border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i12"  style=" background-color:green;"></div></button>
+         <button  class="in" onclick="fun1(1,3)" style="float: right;border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i13"  style=" background-color:green;"></div></button>
+        </div>
+    </div>
+
+    <div style="height: 100px;width: 200px;background-color: rgb(99, 91, 91);float: left;margin-left: 0%;padding: 0%;">
+        <button class="but" onclick="fun(52)" ><div class="circle2" id="b52"></div></button>
+        <button class="but" onclick="fun(1)" ><div class="t" id="b1">             
+<div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p10">0</p></div>
+<div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p11">0</p></div>
+<div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p12">0</p></div>
+<div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p13">0</p></div>
+        </div></button>
+        <button class="but" onclick="fun(2)"><div class="circle2" id="b2"></div></button>
+        <button class="but" onclick="fun(3)"><div class="circle2" id="b3"></div></button>
+        <button class="but" onclick="fun(4)"><div class="circle2" id="b4"></div></button>
+        <button class="but" onclick="fun(5)"><div class="circle2" id="b5"></div></button>
+        <button class="but" onclick="fun(51)"><div class="circle2" id="b51"></div></button>
+        <button class="but" onclick="fun(53)" style="background-color:  rgb(247, 247, 158);"><div class="circle2"  id="b53"></div></button>
+        <button class="but" onclick="fun(54)" style="background-color:  rgb(247, 247, 158);"><div class="circle2" id="b54"></div></button>
+        <button class="but" onclick="fun(55)" style="background-color:  rgb(247, 247, 158);"><div class="circle2" id="b55"></div></button>
+        <button class="but" onclick="fun(56)" style="background-color:  rgb(247, 247, 158);"><div class="circle2" id="b56"></div></button>
+        <button class="but" onclick="fun(57)" style="background-color:  rgb(247, 247, 158);"><div class="circle2" id="b57"></div></button>
+        <button class="but" onclick="fun(50)"><div class="circle2" id="b50"></div></button>
+        <button class="but" onclick="fun(49)" ><div class="t" id="b49">
+            <div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p490">0</p></div>
+            <div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p491">0</p></div>
+            <div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p492">0</p></div>
+            <div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p493">0</p></div>
+        </div></button>
+        <button class="but" onclick="fun(48)"><div class="circle2" id="b48"></div></button>
+        <button class="but" onclick="fun(47)"><div class="circle2" id="b47"></div></button>
+        <button class="but" onclick="fun(46)"><div class="circle2" id="b46"></div></button>
+        <button class="but" onclick="fun(45)"><div class="circle2" id="b45"></div></button>
+       
+       </div>
+       <div class="tie" style="float: left;">
+        <p style="margin-top: -50px;font-size: 35px;color: rgb(9, 1, 32);margin-left: -10px;"  id="F1">0</p>
+        <p style="margin-top: -45px;font-size: 35px;color: rgb(5, 20, 32);margin-left: -60px;" id="F0">0</p>
+        <p style="margin-top: -45px;font-size: 35px;color: rgb(5, 20, 32);margin-left: -10px;" id="F2">0</p>
+        <p style="margin-top: -105px;font-size: 35px;color: rgb(5, 20, 32);margin-left: 20px;" id="F3">0</p>
+    </div>
+    <div style="height: 100px;width: 200px;background-color: rgb(99, 91, 91);float: right;margin-left: 0px;padding: 0%;">
+        <button class="but"  onclick="fun(19)"><div class="circle2" id="b19"></div></button>
+        <button class="but" onclick="fun(20)"><div class="circle2"  id="b20"></div></button>
+        <button class="but" onclick="fun(21)"><div class="circle2"  id="b21"></div></button>
+        <button class="but" onclick="fun(22)"><div class="circle2"  id="b22"></div></button>
+        <button class="but" onclick="fun(23)"><div class="t"  id="b23">
+            <div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p230">0</p></div>
+            <div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p231">0</p></div>
+            <div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p232">0</p></div>
+            <div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p233">0</p></div>
+        </div></button>
+        <button class="but" onclick="fun(24)"><div class="circle2"  id="b24"></div></button>
+        <button class="but" onclick="fun(72)" style="background-color:rgb(204, 69, 69)"><div class="circle2" id="b72"></div></button>
+        <button class="but" onclick="fun(71)" style="background-color:rgb(204, 69, 69)"><div class="circle2" id="b71"></div></button>
+        <button class="but" onclick="fun(70)" style="background-color:rgb(204, 69, 69)"><div class="circle2" id="b70"></div></button>
+        <button class="but" onclick="fun(69)" style="background-color:rgb(204, 69, 69)"><div class="circle2" id="b69"></div></button>
+        <button class="but" onclick="fun(68)" style="background-color:rgb(204, 69, 69)"><div class="circle2" id="b68"></div></button>
+        <button class="but" onclick="fun(25)"><div class="circle2" id="b25"></div></button>
+        <button class="but" onclick="fun(31)"><div class="circle2" id="b31"></div></button>
+        <button class="but" onclick="fun(30)"><div class="circle2" id="b30"></div></button>
+        <button class="but" onclick="fun(29)"><div class="circle2" id="b29"></div></button>
+        <button class="but" onclick="fun(28)"><div class="circle2" id="b28"></div></button>
+        <button class="but" onclick="fun(27)" style="background-color:rgb(204, 69, 69)"><div class="t" id="b27">
+                    
+            <div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p270">0</p></div>
+            <div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p271">0</p></div>
+            <div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p272">0</p></div>
+            <div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p273">0</p></div>
+        </div></button>
+        <button class="but" onclick="fun(26)"><div class="circle2" id="b26"></div></button>
+       
+       </div>
+    <div style="background-color:rgb(125, 138, 255) ;width:200px;height: 200px;float: left;">
+        <div style="background-color:rgb(248, 248, 248) ;width:150px;height: 150px;margin-top: 25px;">
+         <button  class="in" onclick="fun1(2,0)"style="border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i20" style=" background-color:blue;"></div></button>
+         <button  class="in" onclick="fun1(2,1)"style="float: right;border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i21" style=" background-color:blue;"></div></button>
+         <button  class="in" onclick="fun1(2,2)"style="border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i22" style=" background-color:blue;"></div></button>
+         <button  class="in" onclick="fun1(2,3)"style="float: right;border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i23" style=" background-color:blue;"></div></button>
+        </div>
+    </div>
+    <div style="height:200px;width: 100px;background-color: rgb(99, 91, 91);float: left;margin: 0%;padding:0%;">
+    <button class="but" onclick="fun(44)"><div class="circle2" id="b44"></div></button>
+    <button class="but" onclick="fun(67)" style="background-color:rgb(125, 138, 255)"><div class="circle2" id="b67"></div></button>
+    <button class="but" onclick="fun(32)"><div class="circle2" id="b32"></div></button>
+    <button class="but" onclick="fun(43)"><div class="circle2" id="b43"></div></button>
+    <button class="but" onclick="fun(66)" style="background-color:rgb(125, 138, 255)"><div class="circle2" id="b66"></div></button>
+    <button class="but" onclick="fun(33)"><div class="circle2" id="b33"></div></button>
+    <button class="but" onclick="fun(42)"><div class="circle2" id="b42"></div></button>
+    <button class="but" onclick="fun(65)" style="background-color:rgb(125, 138, 255)"><div class="circle2" id="b65"></div></button>
+    <button class="but" onclick="fun(34)"><div class="circle2" id="b34"></div></button>
+    <button class="but" onclick="fun(41)"><div class="circle2" id="b41"></div></button>
+    <button class="but" onclick="fun(64)" style="background-color:rgb(125, 138, 255)"><div class="circle2" id="b64"></div></button>
+    <button class="but" onclick="fun(35)"><div class="circle2" id="b35"></div></button>
+    <button class="but" onclick="fun(40)" style="background-color:rgb(125, 138, 255)"><div class="t" id="b40" >
+        
+        <div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p400">0</p></div>
+        <div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p401">0</p></div>
+        <div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p402">0</p></div>
+        <div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p403">0</p></div>
+    </div></button>
+    <button class="but" onclick="fun(63)" style="background-color:rgb(125, 138, 255)"><div class="circle2" id="b63"></div></button>
+    <button class="but" onclick="fun(36)"><div class="t" id="b36">     
+        <div style="color:black;margin-top: -20px;margin-left: -18px;"><p id="p360">0</p></div>
+        <div style="color:white;margin-top: -38px;margin-left: -4px;"><p id="p361">0</p></div>
+        <div style="color:white;margin-top:-8px ;margin-left: -4px;"><p id="p362">0</p></div>
+        <div style="color:white;margin-top:-38px;margin-left: 5px;"><p id="p363">0</p></div>
+    </div></button>
+    <button class="but" onclick="fun(39)"><div class="circle2" id="b39"></div></button>
+    <button class="but" onclick="fun(38)"><div class="circle2" id="b38" ></div></button>
+    <button class="but" onclick="fun(37)"><div class="circle2" id="b37"></div></button>
+   
+   </div>
+   
+    <div style="background-color:rgb(204, 69, 69) ;width:200px;height: 200px;float: left;">
+        <div style="background-color:rgb(255, 255, 255) ;width:150px;height: 150px;margin-top: 25px;">
+            <button  class="in" onclick="fun1(3,0)" style="border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i30" style=" background-color:red;"></div></button>
+            <button  class="in" onclick="fun1(3,1)" style="float: right;border-radius: 0%;border: 1px solid black;background-color: white;"><div class="circle1" id="i31" style=" background-color:red;"></div></button>
+            <button  class="in"  onclick="fun1(3,2)"style="border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i32" style=" background-color:red;"></div></button>
+            <button  class="in" onclick="fun1(3,3)"style="float: right;border-radius: 0%;border: 1px solid black;background-color: white ;margin-top: -2px;"><div class="circle1" id="i33" style=" background-color:red;"></div></button>
+           
+        </div>
+    </div>
+    
+</div></center>
+<br>
+<br>
+
+    <button style="width: 100px;height: 100px;background-color: red;border-radius: 5%;margin-left: 620px;" onclick="die()" id="ddd"><p id="dd" style="font-size:60px;margin-top: 15px;margin-left: 1px;"></p></button>
+</body>
+</html>
