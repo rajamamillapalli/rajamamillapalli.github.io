@@ -55,12 +55,12 @@
     var a=[[0,0,0,0],[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,[0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     var pl=Array(52).fill(0);
     var p=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-    var  d;
+    var  d=0;
     var t=0;
     var bc=0;
     var col=["yellow","green","blue","red"];
     function die(){
-         if(bc==4 && d!=6){
+        if(bc==4 && d!=6){
         bc=0;}
         if(d!=6)
         bc=bc+1;
@@ -247,7 +247,7 @@ function fun3(x,i){
             else{
                 var x=b+d;
                 if(x==1 || x==14 || x==27 || x==40 ||x==49||x==10||x==23||x==36){
-                    document.getElementById("dd").innerHTML=d+" "+bc+"**"; 
+                     
                     fun3(x,bc-1);
                     document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
                     a[b]=0;
@@ -270,7 +270,7 @@ function fun3(x,i){
                    x=57+x;
                }
                if(x==63){
-                    document.getElementById("F1").innerHTML=(a[0][1]+1)+"#"+b;
+                    document.getElementById("F1").innerHTML=(a[0][1]+1);
                     document.getElementById("b"+b).style.backgroundColor="rgba(255, 255, 255, 0)";
                     a[0][1]+=1;
                     a[b]=0;
@@ -597,7 +597,7 @@ function fun3(x,i){
 
 </script>
 </head>
-<body style="background-image: linear-gradient(180deg, rgb(248, 0, 0), yellow)"><center>
+<body style="background-image: linear-gradient(180deg, rgba(248, 0, 0, 0.623), rgba(255, 255, 0, 0.61));background-repeat: no-repeat"><center>
     <p id="p"></p>
     <div style="background-color:rgb(0, 255, 242) ;width:500px;height: 500px;">
    
@@ -771,11 +771,14 @@ function fun3(x,i){
         </div>
     </div>
     
-</div></center>
+</div>
+</center>
 <br>
 <br>
 <center>
     <button style="width: 100px;height: 100px;background-color: red;border-radius: 5%;" onclick="die()" id="ddd"><p id="dd" style="font-size:60px;margin-top: 15px;margin-left: 1px;"></p></button>
+
 </center>
-    </body>
+  
+</body>
 </html>
