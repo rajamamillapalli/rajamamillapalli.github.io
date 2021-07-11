@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamillapalli Raja</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+    rel="stylesheet">
+    <style>
+        @media only screen and (min-width:400px){
+        .title{
+            display: none;
+        }
+        .brrr{
+            display: none;
+        }
+        body{
+           padding: 0%;
+           margin: 0%;
+        }
+        .lft{
+           background-color: rgb(26, 173, 231);
+           width: 50%;;
+           min-height:100vh;
+           padding: 0%;
+           float:left;
+        }
+        .rig{
+            padding: 0%;
+            min-height:100vh;
+            background-color:white;
+            width: 50%;
+            float:right;
+        }
+        .p1{
+            padding: 20% 0% 0% 10%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color:white;
+            font-size: 70px;
+            text-align: left;
+            line-height:60px;  
+            margin: 0% 0% 0% 0%;   
+        }
+        .p2{
+            font-size: 15px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color:rgba(255, 255, 255, 0.856);
+            padding: 20px 0% 0% 10%;
+            text-align: left;
+            line-height:30px; 
+            
+        }
+        .p3{
+            
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            color:rgba(255, 255, 255, 0.952);
+           margin-left: 15%;
+           
+        }
+        .p33{
+            display: none;
+        }
+        .p4{
+            font-size: 15px;
+            color:black;
+            font-family: 'Inter', sans-serif;
+          margin: -20px 0px 10px 20%;
+          padding: 0% 0% 0% 5%;
+          text-align: left;
+           
+        }
+        .p5{
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            color:rgba(32, 32, 32, 0.719);
+            margin: 0px 0px 0px 20%;
+           line-height:30px; 
+           text-align: left;
+           float:inline-end;
+           padding: 0% 0% 0% 5%;
+            
+        }
+       .cir1{
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background-color: white;
+              margin: 0px 0px 0px 0px;
+              color: rgb(26, 173, 231);  
+              float:left;
+       }
+       .bol1{
+          padding: 3% 20% 0% 10%;
+       }
+       .cir2{
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background-color: rgb(26, 173, 231);  
+              margin: 0px 0px 30px 60px;
+              color: white ;      
+       }
+       span{
+           margin-top: 13px;
+           margin-left: 13px;
+       }
+       .gall{
+        width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background-color: white;
+              margin: 0px 0px 30px 60px;
+              color: rgb(26, 173, 231); 
+              float:right;
+             
+       }
+       .bol{
+           padding: 12% 0% 0% 7%;
+
+           
+       }
+       .bk{
+           margin-top: 100px;
+       }
+       .p55{
+           display: none;
+       }
+    }
+       @media only screen and (max-width:400px){
+        
+        .title{
+            width:100vw;
+             height:15vw;
+            font-family: 'Inter', sans-serif;
+            margin: 0% 0% 0% 0%;
+        }
+        .cir3{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: white;
+              
+              color: rgb(26, 173, 231);  
+              float:right;
+        }
+        .p0{
+            font-size: 25px;
+            margin:10px 0px 0px 20px;
+        }
+        .brr{
+            display: none;
+        }
+        body{
+           padding: 0%;
+           margin: 0%;
+        }
+        .lft{
+           background-color: rgb(26, 173, 231);
+           width: 100vw;
+           min-height:70wh;
+           padding: 0%;
+           float:left;
+           border-radius: 5px;
+        }
+        .p1{
+            padding: 10% 0% 0% 10%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color:white;
+            font-size: 40px;
+            text-align: left;
+            line-height:50px;  
+            margin: 0% 0% 0% 0%;   
+        }
+        .p2{
+            font-size: 15px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color:rgba(255, 255, 255, 0.856);
+            padding: 20px 0% 0% 10%;
+            text-align: left;
+            line-height:15px;  
+        }
+        span{
+            margin-top: 7px;
+            margin-left: 7px;
+        }
+        .cir1{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: white;
+              margin: -9px 0px 50px 27px;
+              color: rgb(26, 173, 231);  
+              float:left;
+       }
+       .rig{
+            padding: 0%;
+            min-height:50vh;
+            background-color:white;
+            width: 100%;
+            margin: 0% 0% 0% 0%;
+           
+        }
+        .bol{
+           
+            margin-top: 10px;
+           
+       }
+       .p4{
+          font-size: 15px;
+          color:black;
+          font-family: 'Inter', sans-serif;
+          margin: 10px 0px 0px 90px;
+          
+       }
+        .p3{          
+            display: none;
+        }
+       .p33{
+           font-size: 15px;
+           font-family: 'Inter', sans-serif;
+           color:rgba(255, 255, 255, 0.952);
+           margin-left: 28%;
+           margin-top: 20%;
+       }
+        .gall{
+            color: white;
+           
+        }
+        .cir2{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: rgb(26, 173, 231);  
+              margin: 20px 0px 0px 25px;
+              color: white ;      
+       }
+       .p5{
+           display:none;
+       }
+       .p55{
+           font-size: 13px;
+           font-family: 'Inter', sans-serif;
+           color:rgba(32, 32, 32, 0.719);
+            margin: 0px 0px 60px 20%;
+           line-height:30px; 
+           text-align: left;
+           float:inline-end;
+           padding: 0% 0% 0% 5%;       
+       }
+       .bk{
+           margin-top: 50px;
+       }
+       }
+
+    </style>
+</head>
+<body> 
+<div class="title">
+    <div class="cir3">
+        <span class="material-icons" >
+            menu            
+        </span>
+    </div>
+   <p class="p0">Logo</p>
+</div>
+<div class="lft" > 
+    <p class="p1">
+         Proin<br class="brr"><br class="brrr">
+         facilisis<br class="brr">
+         risus<br class="brrr"> mus a.
+    </p>
+    <p class="p2">
+        Lorem ipsum dolor sit amet,<br class="brr"><br class="brrr">
+        consectetur adipiscing elit.<br class="brrr"> Dignissim sit<br class="brr">
+        commodo nisl<br class="brrr"> faucibus felis amet
+    </p>
+    <div class="bol1">
+        <div class="cir1">
+               <span class="material-icons">
+               search
+               </span>
+        </div>
+        <div>
+        <p class="p3">Anet vitae pellentesque iaculis metus est.</p>
+        <p class="p33">Augue auctor elementun</p>
+        </div> 
+    </div>
+    <div class="bol1">
+        <div class="cir1">
+              <span class="material-icons">
+              lock
+              </span>    
+        </div>
+        <div>
+        <p class="p3">Orci mumd eu cras amet cursus leo in elit.</p> 
+        <p class="p33">Amet tincidunt asdas.</p> 
+         </div>
+    </div> 
+</div>
+<div class="rig">
+    <div class="gall">
+        <span class="material-icons">
+            image
+        </span>    
+     </div>
+     
+    <div class="bk">
+        <div class="bol">
+            <div class="cir2"  style="float: left;">
+                <span class="material-icons">
+                     delete
+                 </span> 
+            </div>
+            <p class="p4">Feature</p>
+            <p class="p5">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.Sit tellus<br> dolor dicuum ut tellus proin Arcu in sed vitae aliquet lobortis.
+            </p>
+            <p class="p55">
+                Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br>Livero,et,tincidunt
+            </p> 
+        </div>
+        <div class="bol">
+            <div class="cir2"  style="float: left;">
+                  <span class="material-icons">
+                       delete
+                  </span> 
+            </div>
+            <p class="p4">Feature</p>
+            <p class="p5">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.Sit tellus<br> dolor dicuum ut tellus proin Arcu in sed vitae aliquet lobortis.
+            </p> 
+            <p class="p55">
+                Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br>Livero,et,tincidunt
+            </p>   
+        </div>
+        <div class="bol">
+            <div class="cir2"  style="float: left;">
+                 <span class="material-icons">
+                      delete
+                 </span> 
+            </div>
+            <p class="p4">Feature</p>
+            <p class="p5">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.Sit tellus<br> dolor dicuum ut tellus proin Arcu in sed vitae aliquet lobortis.
+            </p>
+            <p class="p55">
+                Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br>Livero,et,tincidunt
+            </p> 
+        </div>
+    </div>
+</div>
+</body>
+</html>
