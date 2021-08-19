@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @media only screen and (max-width:350px) {
+                .b1{
+         width: 70vw;
+         background-color: rgb(63, 60, 60);
+         height:40vh;
+         
+         border-radius: 10%;
+
+        }
+        .b2{
+            width: 70vw;
+            background-color:rgb(78, 78, 85);
+            height:40vh;
+            
+            border-radius: 10%;
+            } }
+        @media only screen and (min-width: 825px){
+        .b1{
+         width: 48vw;
+         background-color: rgb(63, 60, 60);
+         height:80vh;
+         float:right;
+         border-radius: 10%;
+
+        }
+        br{
+            display: none;
+        }
+        .b2{
+            width: 48vw;
+            background-color:rgb(78, 78, 85);
+            height:80vh;
+            float:left;
+            border-radius: 10%;
+            }}
+        @media only screen and (max-width: 824px) and (min-width:350px){
+                .b1{
+         width: 45vw;
+         background-color: rgb(63, 60, 60);
+         height:70vh;
+         float:right;
+         border-radius: 10%;
+
+        }
+        br{
+            display: none;
+        }
+        .b2{
+            width: 45vw;
+            background-color:rgb(78, 78, 85);
+            height:70vh;
+            float:left;
+            border-radius: 10%;
+            } 
+            }
+        .h{
+                font-size: 50px;
+                color:black;
+                padding: 0%;
+                margin: 0%;
+        }
+        button{
+            margin-top:1%;
+            width:50px;
+            height:50px;
+            font-size: 200%;
+            border-radius: 50%;
+            background-color: rgb(92, 92, 92);
+            
+        }
+        .s{
+             font-size: 100px;
+             color: white;
+             padding: 0%;
+             margin: 0%;
+        }
+    </style>
+    <script>
+        var s1=0,s2=0;
+         function sleep(milliseconds) {  
+      return new Promise(resolve => setTimeout(resolve, milliseconds));  
+      }
+        l=["rock.jpg","paper.jpg","scissors.jpg"]
+        async function fun(g){
+                document.getElementById("img2").src=l[g-1];
+                var r=Math.floor(Math.random()*3);
+                document.getElementById("img1").src=l[r];
+                r=r+1;
+                 var d=r-g;
+                 if(d==1 || d==-2)
+                 s1+=1;
+                 if(d==-1 || d==2)
+                 s2+=1;
+                 
+                document.getElementById("s2").innerHTML=s2;
+                document.getElementById("s1").innerHTML=s1;
+                await sleep(2000);
+                document.getElementById("img1").src="Peace.png";
+                document.getElementById("img2").src="Peace.png";
+                
+        }
+    </script>
+    <scrpit>
+
+    </scrpit>
+</head>
+<body style="background-image: linear-gradient(180deg, rgba(87, 77, 77, 0.623), rgba(199, 199, 191, 0.61));background-repeat: no-repeat;background-size: cover;background-attachment: fixed; ">
+    <center>
+    <p class="h">RPS</p>
+    <div class="b1">
+      <img  style="width:60%" id="img1">
+      <p id="s1" class="s">0</p>
+    </div>
+    <br>
+    
+   
+    <div class="b2">
+        <img  style="width:60%" id="img2">
+        <p id="s2" class="s">0</p>
+      </div>
+    
+    </div>
+    <div>
+        <button onclick="fun(1)">✊</button>
+        <button onclick="fun(2)">🖐</button>
+        <button onclick="fun(3)">✌</button>
+    </div>
+   </center>
+</body>
+</html>
