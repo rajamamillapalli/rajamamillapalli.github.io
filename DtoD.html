@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (min-width:450px){
+        input{
+            margin: 5%;
+            height: 25vh;
+            width: 25vh;
+            font-size:100px;
+            color:black;
+            text-align: center;
+            background-color: rgba(99,98,108,255);
+           
+            
+        }
+        br{
+            display: none;
+
+        }
+        .d1{
+            display: none;
+        }
+        .a{
+        width: 50vw;
+        height: 30vh;
+        background-color:rgba(99,98,108,255) ;
+        font-size: 8vw;
+        margin: 2%;
+    }
+    }
+    @media only screen and (max-width:450px){
+            input{
+                height: 20vw;
+                width: 20vw;
+                margin: 5%;
+                text-align: center;
+            background-color: rgba(99,98,108,255);
+            font-size:50px;
+                
+            }
+            .d1{
+                position: fixed;
+            }
+            .a{
+        width: 50vw;
+        height: 10vh;
+        background-color:rgba(99,98,108,255) ;
+        font-size: 8.5vw;
+        margin: 2%;
+        text-align: center;
+    }
+            .cl{
+                margin-top: 50px;
+            }
+    }
+    
+    button{
+        width: 100px;
+        height: 50px;
+        border-radius: 10%;
+        background-color: rgba(183,142,100,255)
+;
+    }
+    
+    </style>
+    <script>
+        function movetoNext(current, nextFieldID) {  
+if (current.value.length >= current.maxLength) {  
+document.getElementById(nextFieldID).focus();  
+}}
+        function fun(){
+           var date,mon,cen,year;
+           date=parseInt(document.getElementById("date").value);
+           mon=parseInt(document.getElementById("mon").value);
+           cen=parseInt(document.getElementById("cen").value);
+           year=parseInt(document.getElementById("year").value);
+           var s=0;
+           if(mon>12  || mon<1)
+           s="ERROR";
+           else{
+           if(mon==1 || mon==3 || mon==5 || mon==7 || mon==8 || mon==10 || mon==12){
+               if(date<1 || 31<date)
+               s="ERROR";
+           }
+           else{
+               if(mon==2){
+               var y=(cen)*100+year;
+               if((y%4==0 && y%100!=0) || y%400==0){
+               if(date<1 || date>29)
+                s="ERROR";}
+                else{
+                    if(date<1 || date>28)
+                        s="ERROR";
+                }}
+                else{
+                    if(date<1 || date>30)
+                        s="ERROR";
+                }
+               
+           }}
+           var l1=[1,4,4,0,2,5,0,3,6,1,4,6]
+           var l2=[6,4,2,0]
+           var l3=["SATURDAY","SUNDAY","MONDAY","TUESDAY","WEDNSDAY","THURSDAY","FRIDAY"];
+           if(s==0){
+           s=date+l1[mon-1]+l2[cen%4]+year+Math.floor(year/4);
+           document.getElementById("a").innerHTML=l3[s%7];
+           s=0;
+        }
+           else{
+            document.getElementById("a").innerHTML=s;
+            s=0;
+           }
+        }
+        function fun2(){
+            document.getElementById("date").value='';
+            document.getElementById("mon").value='';
+            document.getElementById("cen").value='';
+            document.getElementById("year").value='';
+            document.getElementById("date").focus();
+            document.getElementById("a").innerHTML="";
+
+        }
+    </script>
+</head><center>
+<body style="background-color: rgba(56,62,69,255)">
+    <p class="cl"></p>
+    <input type="text"  id="date" maxlength="2" onkeyup="movetoNext(this, 'mon')"><br>
+    <input type="text" id="mon" maxlength="2"  onkeyup="movetoNext(this, 'cen')"><br>
+    <input type="text" id="cen" maxlength="2" onkeyup="movetoNext(this, 'year')"><br>
+    <input type="text" id="year" maxlength="2" onkeyup="movetoNext(this, '')"><br>
+    <br>
+    <div class="a">
+    <p id="a" style="padding: 5%;margin: 0%;" ></p>
+</div>
+     <button onclick="fun()">GETDAY</button>
+     <button onclick="fun2()">REFRESH</button>
+     <script> document.getElementById("date").focus();</script>
+    
+</body></center>
+</html>
